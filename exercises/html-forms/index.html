@@ -7,63 +7,57 @@
     <h1>Coding Form!</h1>
 
     <form action="index.html">
+
       <label for="email">
         <div>Email</div>
+        <input type="text" name="email" size="15" maxlength="30" />
       </label>
-
-      <input type="text" name="email" size="15" maxlength="30" />
 
       <label for="select">
         <div>Why is coding cool?</div>
+        <select name="select">
+          <option value="option">
+            Select an option
+          </option>
+
+          <option value="interesting">
+            Because it's interesting
+          </option>
+
+          <option value="fun">
+            Because it's fun
+          </option>
+
+          <option value="powerful">
+            Because it's powerful
+          </option>
+        </select>
       </label>
-
-      <select name="Cool">
-        <option value="option">
-          Select an option
-        </option>
-
-        <option value="interesting">
-          Because it's interesting
-        </option>
-
-        <option value="fun">
-          Because it's fun
-        </option>
-
-        <option value="powerful">
-          Because it's powerful
-        </option>
-      </select>
 
       <label for="language">
         <div>Favorite Language (choose one)</div>
+        <input type="radio" name="language" value="HTML" checked="checked" /> HTML
+
+        <input type="radio" name="language" value="CSS" checked="checked" /> CSS
+
+        <input type="radio" name="language" value="Javascript" checked="checked" /> Javascript
       </label>
-
-      <input type="radio" name="language"
-        value="HTML" checked="checked" /> HTML
-
-      <input type="radio" name="language"
-        value="CSS" checked="checked" /> CSS
-
-      <input type="radio" name="language"
-        value="Javascript" checked="checked" /> Javascript
 
       <label for="sign up">
         <div>Would you like to sign up for more information?</div>
+        <input type="checkbox" name="sign up" value="sign me up" checked="checked" /> Sign me up!
       </label>
-
-      <input type="checkbox" name="sign up"
-        value="sign me up" checked="checked" /> Sign me up!
 
       <label for="comments">
         <div>Comments</div>
+        <textarea name="comments" cols="20" rows="4"></textarea>
       </label>
-
-      <textarea name="comments" cols="20" rows="4"></textarea>
 
       <br />
 
-      <input type="submit" value="submit" />
+      <label for="submit">
+        <input type="submit" name="submit" value="submit" />
+      </label>
     </form>
   </body>
 </html>
