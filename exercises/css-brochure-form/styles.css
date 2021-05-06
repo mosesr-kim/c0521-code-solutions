@@ -60,9 +60,12 @@ option {
   font-weight: 500;
   background-color: #ec5c57;
   height: 55px;
-  margin-left: 78%;
-  width: 22%;
   border-radius: 50px;
   text-transform: uppercase;
   border: none;
+  width: 150px;
+}
+
+.button {
+  text-align: right;
 }
