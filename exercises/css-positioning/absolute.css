@@ -17,8 +17,8 @@
 
   /* your code here */
   position: absolute;
-  left: 225px;
-  bottom: 225px;
+  right: 20px;
+  top: 10px;
 }
 
 .joke {
@@ -32,7 +32,7 @@
 
   /* your code here */
   position: absolute;
-  top: 150px;
+  bottom: 10px;
 }
 
 .overlay {
@@ -41,5 +41,5 @@
   /* your code here */
   width: 300px;
   height: 300px;
-  position: fixed;
+  position: absolute;
 }
