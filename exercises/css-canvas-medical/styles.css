@@ -159,14 +159,14 @@ a {
   margin-top: 60px;
   line-height: 2.5;
   text-align: center;
-  margin-bottom: 25%;
+  margin-bottom: 100px;
 }
 
 .start-head {
   font-family: 'Tiempos Headline', serif;
   color: #6e6e6e;
-  margin-top: 10%;
   font-size: 20px;
+  margin-top: 50px;
 }
 
 .start-text {
@@ -188,7 +188,7 @@ a {
 
 .start-link {
   text-align: end;
-  margin-top: 15%;
+  margin-top: 70px;
 }
 
 .container-start {
@@ -229,8 +229,8 @@ a {
 
 .col-1-2-end {
   width: 50%;
-  margin-top: 15%;
-  margin-bottom: 15%;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .link-footer {
