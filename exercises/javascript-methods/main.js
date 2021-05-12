@@ -4,7 +4,7 @@ var thirdNumber = 300;
 var maximumValue = Math.max(firstNumber, secondNumber, thirdNumber);
 console.log('value of maximumValue:', maximumValue);
 var heroes = ['batman', 'spiderman', 'captain america', 'iron man'];
-var randomNumber = Math.random(heroes);
+var randomNumber = Math.random();
 console.log('value of randomNumber:', randomNumber);
 randomNumber = randomNumber * heroes.length;
 var randomIndex = Math.floor(randomNumber);
