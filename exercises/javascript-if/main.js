@@ -8,82 +8,67 @@
             introduceWarnerBro
  */
 function isUnderFive(number) {
-  var underFive = '';
   if (number < 5) {
-    underFive = true;
+    return true;
   } else {
-    underFive = false;
+    return false;
   }
-  return underFive;
 }
 
 function isEven(number) {
-  var even = '';
   if (number % 2 === 0) {
-    even = true;
+    return true;
   } else {
-    even = false;
+    return false;
   }
-  return even;
 }
 
 function startsWithJ(string) {
-  var starts = '';
   if (string[0] === 'J') {
-    starts = true;
+    return true;
   } else {
-    starts = false;
+    return false;
   }
-  return starts;
 }
 
 function isOldEnoughToDrink(person) {
-  var oldEnough = '';
   if (person.age >= 21) {
-    oldEnough = true;
+    return true;
   } else {
-    oldEnough = false;
+    return false;
   }
-  return oldEnough;
 }
 
 function isOldEnoughToDrive(person) {
-  var oldEnough = '';
   if (person.age >= 16) {
-    oldEnough = true;
+    return true;
   } else {
-    oldEnough = false;
+    return false;
   }
-  return oldEnough;
 }
 
 function isOldEnoughToDrinkAndDrive(person) {
-  var OldEnough = false;
-  return OldEnough;
+  return false;
 }
 
 function categorizeAcidity(pH) {
-  var acidity = '';
   if (pH === 7) {
-    acidity = 'neutral';
+    return 'neutral';
   } else if ((pH < 7) && (pH >= 0)) {
-    acidity = 'acid';
+    return 'acid';
   } else if ((pH > 7) && (pH <= 14)) {
-    acidity = 'base';
+    return 'base';
   } else {
-    acidity = 'invalid pH level';
+    return 'invalid pH level';
   }
-  return acidity;
 }
 
 function introduceWarnerBro(name) {
-  var introduce = '';
   if ((name === 'yakko') || (name === 'wakko')) {
-    introduce = 'We\'re the warner brothers!';
+    return 'We\'re the warner brothers!';
   } else if (name === 'dot') {
-    introduce = 'I\'m cute~';
+    return 'I\'m cute~';
   } else {
-    introduce = 'Goodnight everybody!';
+    return 'Goodnight everybody!';
   }
-  return introduce;
 }
