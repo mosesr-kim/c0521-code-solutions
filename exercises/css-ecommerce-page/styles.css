@@ -1,0 +1,56 @@
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.row {
+  display: flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-1-5 {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image {
+  height: 350px;
+  object-fit: contain;
+}
+
+.head {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.container-margin {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-name {
+  font-size: 12px;
+}
+
+span.gray {
+  color: #d3d3d3;
+}
+
+.strike {
+  text-decoration-line: line-through;
+  text-decoration-color: #d3d3d3;
+  color: #d3d3d3;
+}
+
+.highlight {
+  background-color: #fff1e7;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
