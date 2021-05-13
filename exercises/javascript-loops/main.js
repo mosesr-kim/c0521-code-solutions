@@ -10,7 +10,7 @@ function getNumbersToTen() {
   var numbers = [];
   var currentNumber = 1;
   while (currentNumber <= 10) {
-    numbers[currentNumber - 1] = currentNumber;
+    numbers.push(currentNumber);
     currentNumber = currentNumber + 1;
   }
   return numbers;
@@ -45,7 +45,7 @@ function logEachCharacter(string) {
 function doubleAll(numbers) {
   var doubled = [];
   for (var i = 0; i < numbers.length; i++) {
-    doubled[i] = numbers[i] * 2;
+    doubled.push(numbers[i] * 2);
   }
   return doubled;
 }
