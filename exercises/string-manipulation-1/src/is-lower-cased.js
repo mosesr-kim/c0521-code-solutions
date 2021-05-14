@@ -1,12 +1,9 @@
 /* exported isLowerCased */
 function isLowerCased(word) {
-  var truth = false;
+  var truth = true;
   for (var i = 0; i < word.length; i++) {
-    if (word[i].toLowerCase() === word[i]) {
-      truth = true;
-    } else {
+    if (word[i].toLowerCase() !== word[i]) {
       truth = false;
-      break;
     }
   }
   return truth;
