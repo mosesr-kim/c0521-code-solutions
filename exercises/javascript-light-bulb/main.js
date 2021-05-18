@@ -1,15 +1,15 @@
 var $lightBulb = document.querySelector('.light-bulb-on');
 var $row = document.querySelector('.row-on');
-var count = 0;
+var isOn = true;
 function turnOnOff(event) {
-  if (count % 2 === 0) {
+  if (isOn === true) {
     $lightBulb.className = 'light-bulb-off';
     $row.className = 'row-off';
-    count++;
+    isOn = false;
   } else {
     $lightBulb.className = 'light-bulb-on';
     $row.className = 'row-on';
-    count++;
+    isOn = true;
   }
 }
 $lightBulb.addEventListener('click', turnOnOff);
