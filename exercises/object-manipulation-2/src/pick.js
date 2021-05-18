@@ -1,11 +1,13 @@
 /* exported pick */
 function pick(source, keys) {
   var newObject = {};
-  for (var key in source) {
-    if ((keys[0] in source === true) ||
-    (keys[1] in source === true) ||
-    (keys[2] in source === true)) {
-      newObject[key] = source[key];
+  for (var i = 0; i < keys.length; i++) {
+    if (keys[i] in source) {
+      var newValue = source[keys[i]];
+      newObject[keys[i]] = newValue;
+    }
+    if (newValue === undefined) {
+      delete newObject[keys[i]];
     }
   }
   return newObject;
