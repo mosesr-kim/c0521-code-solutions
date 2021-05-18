@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+}
+
+.row-on {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fef9f1;
+}
+
+.row-off {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+}
+
+.light-bulb-on {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9ea84;
+  border-radius: 50%;
+  height: 15rem;
+  width: 15rem;
+}
+
+.light-bulb-off {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222324;
+  border-radius: 50%;
+  height: 15rem;
+  width: 15rem;
+}
