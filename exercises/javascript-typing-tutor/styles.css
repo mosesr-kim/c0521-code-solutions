@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 10rem;
+}
+
+span {
+  font-family: 'Poppins', sans-serif;
+  white-space: pre;
+}
+
+span.current {
+  border-bottom: 3px solid black;
+  padding-bottom: 5px;
+}
+
+span.correct {
+  color: green;
+}
+
+span.wrong {
+  color: red;
+  border-bottom: 3px solid red;
+  padding-bottom: 5px;
+}
