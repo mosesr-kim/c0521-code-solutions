@@ -11,6 +11,7 @@ body {
 
 span {
   font-family: 'Poppins', sans-serif;
+  white-space: pre;
 }
 
 span.current {
