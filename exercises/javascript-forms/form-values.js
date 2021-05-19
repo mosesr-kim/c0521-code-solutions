@@ -7,4 +7,5 @@ function submitForm(event) {
   newObject.email = $form.elements.email.value;
   newObject.message = $form.elements.message.value;
   console.log(newObject);
+  $form.reset();
 }
