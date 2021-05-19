@@ -11,9 +11,9 @@ function chunk(array, size) {
       newArray.push(storageArray);
       storageArray = [];
     }
-    if ((i + 1 === array.length) && (storageArray.length > 0)) {
-      newArray.push(storageArray);
-    }
+  }
+  if (storageArray.length > 0) {
+    newArray.push(storageArray);
   }
   return newArray;
 }
