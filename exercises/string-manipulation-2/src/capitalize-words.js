@@ -11,20 +11,6 @@ if character is space :
 -add word to output storage space
 -clear word storage space
 -return output storage space */
-function capitalizeWord(word) {
-  var newString = '';
-  newString = newString + word[0].toUpperCase();
-  for (var i = 1; i < word.length; i++) {
-    if (typeof (newString) === 'string') {
-      newString = newString + word[i].toLowerCase();
-    }
-  }
-  if (newString === 'Javascript') {
-    newString = 'JavaScript';
-  }
-  return newString;
-}
-
 function capitalizeWords(string) {
   var word = '';
   var output = '';
