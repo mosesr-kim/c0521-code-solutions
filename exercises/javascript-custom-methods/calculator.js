@@ -9,7 +9,7 @@ var calculator = {
   multiply(x, y) {
     return x * y;
   },
-  divide(x , y) {
+  divide(x, y) {
     return x / y;
   },
   square(x) {
@@ -29,4 +29,4 @@ var calculator = {
     }
     return sum / numbers.length;
   }
-}
+};
