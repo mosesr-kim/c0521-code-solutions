@@ -18,7 +18,6 @@ function capitalizeWord(word) {
   return newString;
 }
 function titleCase(string) {
-  // debugger;
   var word = '';
   var newString = '';
   for (var i = 0; i < string.length; i++) {
