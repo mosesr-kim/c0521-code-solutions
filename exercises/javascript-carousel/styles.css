@@ -1,0 +1,50 @@
+.hidden {
+  display: none;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.margin-right {
+  margin-right: 200px;
+}
+
+.margin-left {
+  margin-left: 200px;
+}
+
+.fas {
+  font-size: 32px;
+}
+
+.fa-circle {
+  font-size: 24px;
+  margin: 0 12px;
+}
