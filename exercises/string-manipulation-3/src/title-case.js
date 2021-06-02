@@ -2,16 +2,19 @@
 function capitalizeWord(word) {
   var newString = word[0].toUpperCase();
   for (var i = 1; i < word.length; i++) {
-    newString = newString + word[i].toLowerCase();
+    newString += word[i].toLowerCase();
   }
-  if (newString === 'Javascript:') {
-    newString = 'JavaScript:';
-  } else if (newString === 'In-depth') {
-    newString = 'In-Depth';
+  if (newString === 'Javascript: ') {
+    newString = 'JavaScript: ';
+  } else if (newString === 'Javascript ') {
+    newString = 'JavaScript ';
+  } else if (newString === 'In-depth ') {
+    newString = 'In-Depth ';
   } else if (newString === 'Api') {
     newString = 'API';
+  } else if (newString === 'For ') {
+    newString = 'for ';
   }
-
   return newString;
 }
 function titleCase(string) {
@@ -21,7 +24,7 @@ function titleCase(string) {
   for (var i = 0; i < string.length; i++) {
     word += string[i];
     if (string[i] === ' ') {
-      if (word.length > 4) {
+      if ((word.length >= 4) || (newString[newString.length - 2] === ':')) {
         var capitalizedWord = capitalizeWord(word);
         newString += capitalizedWord;
         word = '';
@@ -30,6 +33,6 @@ function titleCase(string) {
       word = '';
     }
   }
-  newString += word;
+  newString += capitalizeWord(word);
   return newString;
 }
