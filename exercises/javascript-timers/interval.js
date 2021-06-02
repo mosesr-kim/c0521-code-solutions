@@ -7,8 +7,8 @@ function countdown() {
   $h1.textContent = counter;
   if (counter === 0) {
     $h1.textContent = '~Earth Beeeelooowww Us~!';
-    clearInterval(countdownFrom4);
+    clearInterval(countEverySecond);
   }
 }
 
-var countdownFrom4 = setInterval(countdown, 1000);
+var countEverySecond = setInterval(countdown, 1000);
