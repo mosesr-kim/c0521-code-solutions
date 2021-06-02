@@ -24,7 +24,7 @@ function titleCase(string) {
   for (var i = 0; i < string.length; i++) {
     word += string[i];
     if (string[i] === ' ') {
-      if ((word.length >= 4) || (newString[newString.length - 2] === ':')) {
+      if ((word.length > 4) || (word === 'web ') || (newString[newString.length - 2] === ':')) {
         var capitalizedWord = capitalizeWord(word);
         newString += capitalizedWord;
         word = '';
