@@ -47,3 +47,11 @@ function getRangeReport(start, end) {
   }
   return report;
 }
+
+getRangeReport(10, 10);
+
+getRangeReport(11, 11);
+
+getRangeReport(10, 20);
+
+getRangeReport(10, 100);
