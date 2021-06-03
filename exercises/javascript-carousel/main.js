@@ -7,7 +7,7 @@ var $circles = document.querySelectorAll('.fa-circle');
 var counter = 1;
 
 $right.addEventListener('click', moveCarouselRight);
-$left.addEventListener('click', leftArrowClicked);
+$left.addEventListener('click', moveCarouselLeft);
 $circleButtons.addEventListener('click', circleClicked);
 
 function viewSwap() {
@@ -31,7 +31,7 @@ function circleClicked(event) {
   }
 }
 
-function leftArrowClicked(event) {
+function moveCarouselLeft(event) {
   if (counter === 1) {
     counter = 5;
     viewSwap();
