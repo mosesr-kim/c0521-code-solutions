@@ -6,13 +6,13 @@ var $circles = document.querySelectorAll('.fa-circle');
 
 var counter = 1;
 
-$right.addEventListener('click', rightArrowClicked);
+$right.addEventListener('click', moveCarouselRight);
 $left.addEventListener('click', leftArrowClicked);
 $circleButtons.addEventListener('click', circleClicked);
 
 function viewSwap() {
   stopCarousel();
-  carouselID = setInterval(moveCarousel, 3000);
+  carouselID = setInterval(moveCarouselRight, 3000);
   for (var i = 0; i < 5; i++) {
     if (counter === parseInt($images[i].getAttribute('data-view'))) {
       $images[i].className = 'carouselImg';
@@ -31,16 +31,6 @@ function circleClicked(event) {
   }
 }
 
-function rightArrowClicked(event) {
-  if (counter === 5) {
-    counter = 1;
-    viewSwap();
-    return;
-  }
-  counter += 1;
-  viewSwap();
-}
-
 function leftArrowClicked(event) {
   if (counter === 1) {
     counter = 5;
@@ -51,7 +41,7 @@ function leftArrowClicked(event) {
   viewSwap();
 }
 
-function moveCarousel() {
+function moveCarouselRight() {
   if (counter === 5) {
     counter = 1;
     viewSwap();
@@ -65,4 +55,4 @@ function stopCarousel() {
   clearInterval(carouselID);
 }
 
-var carouselID = setInterval(moveCarousel, 3000);
+var carouselID = setInterval(moveCarouselRight, 3000);
