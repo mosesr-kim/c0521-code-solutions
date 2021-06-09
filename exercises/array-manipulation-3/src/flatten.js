@@ -6,8 +6,7 @@ function flatten(array) {
       for (var z = 0; z < array[i].length; z++) {
         newArray.push(array[i][z]);
       }
-    }
-    if (!Array.isArray(array[i])) {
+    } else {
       newArray.push(array[i]);
     }
   }
