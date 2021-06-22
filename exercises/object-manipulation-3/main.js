@@ -1,20 +1,23 @@
-console.log('Lodash is loaded:', typeof _ !== 'undefined');
 var players = [
   {
     name: 'player 1',
-    hand: {}
+    hand: {},
+    value: 0
   },
   {
     name: 'player 2',
-    hand: {}
+    hand: {},
+    value: 0
   },
   {
     name: 'player 3',
-    hand: {}
+    hand: {},
+    value: 0
   },
   {
     name: 'player 4',
-    hand: {}
+    hand: {},
+    value: 0
   }
 ];
 var deck = [];
@@ -29,7 +32,6 @@ function createDeck() {
   return deck;
 }
 var shuffledDeck = _.shuffle(createDeck());
-console.log(shuffledDeck);
 function dealTwoCards() {
   for (var i = 0; i < players.length; i++) {
     players[i].hand = {
@@ -38,34 +40,32 @@ function dealTwoCards() {
     };
     shuffledDeck.splice(0, 1);
     shuffledDeck.splice(1, 1);
-    console.log(shuffledDeck);
   }
   return players;
 }
 dealTwoCards();
 function declareWinner() {
-  var winner = null;
-  var value = [];
-  var highestHand = 0;
   var total = 0;
+  var winner = '';
   for (var i = 0; i < players.length; i++) {
-    value.push(players[i].hand.firstCard.rank);
-    value.push(players[i].hand.secondCard.rank);
-    for (var z = 0; z < value.length; z++) {
-      if ((value[z] === 'Jack') || (value[z] === 'Queen') || (value[z] === 'King')) {
-        total += 10;
-      } else if ((value[z] === 'Ace')) {
-        total += 11;
-      } else {
-        total += value[z];
+    for (var key in players[i].hand) {
+      if ((players[i].hand[key].rank === 'Jack') || (players[i].hand[key].rank === 'Queen') || (players[i].hand[key].rank === 'King')) {
+        players[i].value += 10;
+        break;
       }
+      if ((players[i].hand[key].rank === 'Ace')) {
+        players[i].value += 11;
+        break;
+      }
+      players[i].value += players[i].hand[key].rank;
     }
-    if (total > highestHand) {
-      highestHand = total;
-      winner = players[i];
-    }
-    total = 0;
   }
-  return winner.name;
+  for (var z = 0; z < players.length; z++) {
+    if (players[z].value > total) {
+      winner = players[z];
+      total = players[z].value;
+    }
+  }
+  return winner;
 }
-console.log(declareWinner(), 'is the winner!');
+console.log(`The winner is ${declareWinner().name} with the value of ${declareWinner().value}`);
