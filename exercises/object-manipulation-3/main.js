@@ -19,7 +19,7 @@ var players = [
 ];
 var deck = [];
 var suit = ['club', 'diamond', 'heart', 'spade'];
-var rank = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
+var rank = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
 function createDeck() {
   for (var i = 0; i < suit.length; i++) {
     for (var z = 0; z < rank.length; z++) {
@@ -45,9 +45,17 @@ function dealTwoCards() {
 console.log(dealTwoCards());
 
 function declareWinner() {
-  var winner = '';
-  var value = 0;
+  var winner = null;
+  var value = null;
+  var total = 0;
   for (var i = 0; i < players.length; i++) {
-
+    value.push(players[i].firstCard.rank);
+    value.push(players[i].secondCard.rank);
+    for (var z = 0; z < value.length; z++) {
+      if ((value[i] === 'Jack') || (value[i] === 'Queen') || (value[i] === 'King')) {
+        total += 10;
+      } else if ((value[i] === 'Ace')) {
+        total += 11;
+    }
   }
 }
