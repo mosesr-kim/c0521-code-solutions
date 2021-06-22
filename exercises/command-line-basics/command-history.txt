@@ -1,0 +1,53 @@
+    1  exit
+    2  whoami
+    3  git config --global user.name "mosesr-kim"
+    4  git config --global user.email "mosesrandykim@gmail.com"
+    5  git config --global --list
+    6  cd ~/repos/c0521-code-solutions/exercises/command-line-basics/
+    7  man cat
+    8  cat laziness.txt 
+    9  cat impatience.txt 
+   10  cat hubris.txt 
+   11  man cat
+   12  cat laziness.txt impatience.txt hubris.txt 
+   13  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+   14  cat three-virtues.txt 
+   15  ls
+   16  man pwd
+   17  pwd
+   18  pwd > i-was-here.txt
+   19  ls
+   20  cat i-was-here.txt 
+   21  man echo
+   22  echo 'Hello World!'
+   23  echo 'Hello World!' > hello.txt
+   24  ls
+   25  cat hello.txt 
+   26  man touch
+   27  touch tag-youre-it.txt
+   28  touch snoot/boop.txt
+   29  ls snoot/
+   30  man mkdir
+   31  mkdir parent
+   32  ls
+   33  mkdir -p parent/child/grandchild
+   34  ls
+   35  touch parent/child/grandchild/.gitkeep
+   36  la -a
+   37  ls -a
+   38  ls
+   39  man mv
+   40  mv pokiemans pokemon
+   41  ls
+   42  man rm
+   43  rm lol.txt
+   44  ls
+   45  rm -r kill-me/
+   46  ls
+   47  man cp
+   48  cp and-then.txt no-and-then.txt
+   49  ls
+   50  cat and-then.txt no-and-then.txt 
+   51  man history
+   52  history
+   53  history > command-history.txt
