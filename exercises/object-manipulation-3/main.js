@@ -42,20 +42,30 @@ function dealTwoCards() {
   }
   return players;
 }
-console.log(dealTwoCards());
-
+dealTwoCards();
 function declareWinner() {
   var winner = null;
-  var value = null;
+  var value = [];
+  var highestHand = 0;
   var total = 0;
   for (var i = 0; i < players.length; i++) {
-    value.push(players[i].firstCard.rank);
-    value.push(players[i].secondCard.rank);
+    value.push(players[i].hand.firstCard.rank);
+    value.push(players[i].hand.secondCard.rank);
     for (var z = 0; z < value.length; z++) {
-      if ((value[i] === 'Jack') || (value[i] === 'Queen') || (value[i] === 'King')) {
+      if ((value[z] === 'Jack') || (value[z] === 'Queen') || (value[z] === 'King')) {
         total += 10;
-      } else if ((value[i] === 'Ace')) {
+      } else if ((value[z] === 'Ace')) {
         total += 11;
+      } else {
+        total += value[z];
+      }
     }
+    if (total > highestHand) {
+      highestHand = total;
+      winner = players[i];
+    }
+    total = 0;
   }
+  return winner.name;
 }
+console.log(declareWinner(), 'is the winner!');
