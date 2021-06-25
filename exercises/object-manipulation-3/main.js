@@ -44,9 +44,8 @@ function dealTwoCards() {
   return players;
 }
 dealTwoCards();
+var winner;
 function declareWinner() {
-  var total = 0;
-  var winner = '';
   for (var i = 0; i < players.length; i++) {
     for (var key in players[i].hand) {
       if ((players[i].hand[key].rank === 'Jack') || (players[i].hand[key].rank === 'Queen') || (players[i].hand[key].rank === 'King')) {
@@ -60,12 +59,13 @@ function declareWinner() {
       players[i].value += players[i].hand[key].rank;
     }
   }
+  var total = 0;
   for (var z = 0; z < players.length; z++) {
     if (players[z].value > total) {
       winner = players[z];
       total = players[z].value;
     }
   }
-  return winner;
 }
-console.log(`The winner is ${declareWinner().name} with the value of ${declareWinner().value}`);
+declareWinner();
+console.log(`The winner is ${winner.name} with the value of ${winner.value}`);
