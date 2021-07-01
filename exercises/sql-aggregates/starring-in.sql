@@ -4,4 +4,5 @@ select "categories"."name" as "category", count("filmCategory"."categoryId")
   join "filmCategory" using ("filmId")
   join "categories" using ("categoryId")
  where "firstName" = 'Lisa'
+   and "lastName"  = 'Monroe'
   group by "categories"."name";
