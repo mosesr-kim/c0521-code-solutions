@@ -33,10 +33,12 @@ app.get('/api/grades', (req, res) => {
 app.post('/api/grades', (req, res) => {
   if (!req.body.name || !req.body.course || !req.body.score) {
     res.status(400).send({ error: 'name, course and score is a required field' });
+    return;
   }
   const score = parseFloat(req.body.score);
   if (!Number.isInteger(score) || !(score >= 0) || !(score <= 100)) {
     res.status(400).send({ error: 'score must be an integer from 0 to 100' });
+    return;
   }
   const sql = `
     insert into "grades" ("name", "course", "score")
@@ -58,14 +60,17 @@ app.post('/api/grades', (req, res) => {
 app.put('/api/grades/:gradeId', (req, res) => {
   if (!req.body.name || !req.body.course || !req.body.score) {
     res.status(400).send({ error: 'name, course and score is a required field' });
+    return;
   }
   const gradeId = parseFloat(req.params.gradeId);
   if (!Number.isInteger(gradeId)) {
     res.status(400).send({ error: 'gradeId must be a positive integer' });
+    return;
   }
   const score = parseFloat(req.body.score);
   if (!Number.isInteger(score) || !(score >= 0) || !(score <= 100)) {
     res.status(400).send({ error: 'score must be an integer from 0 to 100' });
+    return;
   }
   const sql = `
     update "grades"
@@ -80,6 +85,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
   dbQuery.then(result => {
     if (!result.rows[0]) {
       res.status(404).send({ error: 'gradeId does not exist in the database' });
+      return;
     }
     const updateResult = result;
     res.status(200).send(updateResult.rows[0]);
@@ -94,6 +100,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseFloat(req.params.gradeId);
   if (!Number.isInteger(gradeId)) {
     res.status(400).send({ error: 'gradeId must be a positive integer' });
+    return;
   }
   const sql = `
     delete from "grades"
@@ -105,6 +112,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   dbQuery.then(result => {
     if (!result.rows[0]) {
       res.status(404).send({ error: 'gradeId does not exist in the database' });
+      return;
     }
     res.status(204).send();
   });
