@@ -2,11 +2,7 @@
 
 // }
 
-class ExampleClass {
-  ExampleClass() {
-
-  }
-}
+class ExampleClass {}
 
 const example = new ExampleClass();
 
