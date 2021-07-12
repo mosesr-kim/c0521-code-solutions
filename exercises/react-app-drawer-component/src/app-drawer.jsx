@@ -6,6 +6,20 @@ export default class AppDrawer extends React.Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <>
+      <div>
+        <i className="fas fa-bars navBar"></i>
+      </div>
+      <div>
+        <div className="drawer">
+          <h2>Menu</h2>
+          <h3>About</h3>
+          <h3>Get Started</h3>
+          <h3>Sign In</h3>
+        </div>
+      </div>
+      </>
+    );
   }
 }
