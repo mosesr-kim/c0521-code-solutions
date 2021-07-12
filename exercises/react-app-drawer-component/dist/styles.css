@@ -1,3 +1,35 @@
 .navBar {
   font-size: 24px;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: grey;
+}
+
+.menu,
+.about,
+.getStarted,
+.signIn {
+  margin-left: 25px;
+}
+
+.open {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.closed {
+  background-color: white;
+}
