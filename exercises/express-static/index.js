@@ -4,9 +4,9 @@ const path = require('path');
 
 const app = express();
 
-path.join('./public', __dirname);
+const publicDir = path.join(__dirname, '/public');
 
-const serveFiles = express.static('public');
+const serveFiles = express.static(publicDir);
 
 app.use(serveFiles);
 
