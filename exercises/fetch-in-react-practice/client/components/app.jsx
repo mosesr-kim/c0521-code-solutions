@@ -73,12 +73,7 @@ export default class App extends React.Component {
     const todosArray = this.state.todos.concat();
     const toggledTodo = todosArray.filter(todo => todo.todoId === todoId);
     const index = todosArray.findIndex(todo => todo.todoId === todoId);
-    const patchBody = {};
-    if (toggledTodo[0].isCompleted) {
-      patchBody.isCompleted = false;
-    } else {
-      patchBody.isCompleted = true;
-    }
+    const patchBody = toggledTodo[0].isCompleted ? { isCompleted: false } : { isCompleted: true };
     const patchHeaders = new Headers();
     patchHeaders.append('Content-Type', 'application/json');
     const patchBodyStringed = JSON.stringify(patchBody);
