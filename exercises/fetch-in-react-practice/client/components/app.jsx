@@ -39,14 +39,17 @@ export default class App extends React.Component {
     * TIP: Use Array.prototype.concat to create a new array containing the contents
     * of the old array, plus the object returned by the server.
     */
-    // console.log(newTodo);
-    const postBody = JSON.stringify(newTodo);
     const postHeaders = new Headers();
     postHeaders.append('Content-Type', 'application/json');
-    const postInit = { method: 'POST', headers: postHeaders, body: postBody };
+    const postBodyStringed = JSON.stringify(newTodo);
+    const postInit = { method: 'POST', headers: postHeaders, body: postBodyStringed };
     fetch('/api/todos', postInit)
       .then(res => res.json())
-      .then(todo => todo);
+      .then(todo => {
+        const todosArray = this.state.todos.concat();
+        todosArray.push(todo);
+        this.setState({ todos: todosArray });
+      });
   }
 
   toggleCompleted(todoId) {
@@ -67,6 +70,25 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    const todosArray = this.state.todos.concat();
+    const toggledTodo = todosArray.filter(todo => todo.todoId === todoId);
+    const index = todosArray.findIndex(todo => todo.todoId === todoId);
+    const patchBody = {};
+    if (toggledTodo[0].isCompleted) {
+      patchBody.isCompleted = false;
+    } else {
+      patchBody.isCompleted = true;
+    }
+    const patchHeaders = new Headers();
+    patchHeaders.append('Content-Type', 'application/json');
+    const patchBodyStringed = JSON.stringify(patchBody);
+    const patchInit = { method: 'PATCH', headers: patchHeaders, body: patchBodyStringed };
+    fetch(`/api/todos/${todoId}`, patchInit)
+      .then(res => res.json())
+      .then(newTodo => {
+        todosArray.splice(index, 1, newTodo);
+        this.setState({ todos: todosArray });
+      });
   }
 
   render() {
