@@ -1,0 +1,50 @@
+.navBar {
+  font-size: 24px;
+}
+
+.navBar:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.drawer {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: white;
+}
+
+.menu,
+.about,
+.getStarted,
+.signIn {
+  margin-left: 25px;
+  width: fit-content;
+}
+
+.menu:hover,
+.about:hover,
+.getStarted:hover,
+.signIn:hover {
+  cursor: pointer;
+}
+
+.dimBackground {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
