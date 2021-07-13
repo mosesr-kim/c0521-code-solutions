@@ -2,6 +2,10 @@
   font-size: 24px;
 }
 
+.navBar:hover {
+  cursor: pointer;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -12,11 +16,12 @@ body {
 
 .drawer {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
   width: 20%;
-  background-color: grey;
+  background-color: white;
 }
 
 .menu,
@@ -24,12 +29,22 @@ body {
 .getStarted,
 .signIn {
   margin-left: 25px;
+  width: fit-content;
 }
 
-.open {
+.menu:hover,
+.about:hover,
+.getStarted:hover,
+.signIn:hover {
+  cursor: pointer;
+}
+
+.dimBackground {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.closed {
-  background-color: white;
 }
