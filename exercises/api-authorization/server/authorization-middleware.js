@@ -7,13 +7,9 @@ function authorizationMiddleware(req, res, next) {
   if (!token) {
     throw new ClientError(401, 'authentication required');
   }
-  try {
-    const payload = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.user = payload;
-    next();
-  } catch (err) {
-    console.error(err);
-  }
+  const payload = jwt.verify(token, process.env.TOKEN_SECRET);
+  req.user = payload;
+  next();
   /**
    * Try to get the 'X-Access-Token' from the req.headers.
    * If no token is provided,
