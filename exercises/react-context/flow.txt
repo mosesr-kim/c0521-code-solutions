@@ -144,4 +144,4 @@ new hash.
 renderPage method is called which see's that the route is now 'sign-in'.
 -The renderPage method returns the Auth react element.
 -The Auth react element checks if there is a user and since there isn't a user,
-it will return the sign-in page. Which then gets rendered to the user.
+it will return the sign-in page.
