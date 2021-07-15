@@ -1,0 +1,147 @@
+1. User can sign up :
+- When the user wants to sign up, they will have to click
+either the sign up button on the nav bar or the register now button on the form.
+-If they click one of those, the hash property of the location changes. Which will
+trigger the event listener for hashchange.
+-Since the hash location is 'sign-up', the page will be rendered again using the
+route property of the state.
+-The render method will create a whole new page for the user.
+-As a child for the react element PageContainer, the renderPage method is called
+which will check the route property of the state property of this object.
+-Since the route is 'sign-up', The react element Auth will be created.
+-The Auth react element will check if there is a user first. If there is a user
+property of the context, then Redirect function will be called with the prop 'to'
+with the value of an empty string. This will set the hash to '#' which will
+trigger the event listener for the page to be rendered again.
+-Since their is no user property of the context, The Auth react element will be
+created which will include a welcome message based on the route and the form with
+the key and action prop with the values of the the path property of the route object.
+-When they are entering their username and password, the state property for the
+AuthForm component changes due to the handleChange method. It will keep rendering
+if there is a value changed due to the react lifecycle.
+-Once the user is done entering their username and password, they can submit
+which will not refresh the page and send a POST request to the /api/auth/sign-up
+url using the fetch method.
+-The server will get the request that matches the same http method and request url.
+-The server will check if the request has a username and password property of the
+request object first. The input fields require the fields to be filled out before
+submitting so the error would never trigger.
+-Assuming that there will be a username and password, the password is hashed using
+the hash method of the argon2 object.
+-Once the password is hashed, the database is queried, inserting the username and
+password into the users table.
+-If the query successful, the status 201 is sent and the result is parsed and sent.
+-Since the server fulfilled the promise for the fetch call, the response from the
+server is parsed and then the next then method will check if the hash location is
+'sign-up' or 'sign-in'.
+-Since the user signed up, the hash location will change to sign-in which will
+trigger the event listener within the componentDidMount method.
+-This will render the page again but passing in the route value of 'sign-in'.
+
+
+2. User can sign in:
+-If the user wants to sign-in, the sign-in page can be accessed by clicking on
+the nav bar sign-in button or on the 'sign in instead' button on the Auth form.
+-Clicking either will change the hash location which will change the page contents
+based on the route.
+-The user will be able to enter in a username and password.
+-The values of the inputs are stored in the state property again just like the
+sign-up form which will also render the page when any of the input values are changed.
+-When the user submits the form, the page does not reload and the fetch function
+is called sending a POST request to the /api/auth/sign-in url. The body contains
+the username and password in a JSON string.
+-The server will get the request and pass it to a function that has the matching
+http method and request url.
+-First, the function will check if there is a username and password in the req.body.
+If there isn't a username and password in the body, the function will throw a new
+ClientError which will send a status code of 401 and the message 'invalid login'.
+This error should never trigger since the form requires those fields to be filled
+out before submitting.
+-Assuming that there is a username and password in the req.body, the database will
+be queried. The sql will select the userId and hashedPassword from the users table
+and get the ones where the username is equal to the provided username from the user.
+-If the database doesn't return a response meaning that there is no user with that
+username, it will throw a new ClientError with the status code of 401 and the
+message 'invalid login'.
+-If there is a response, the given password from the user and the already hashed
+password from the data base is compared by the verify method of the argon2 object.
+-Then the respnse from the verify method is checked to see if it came truthy or
+falsey.
+-If the passwords did not match, a new new ClientError with the status code of 401
+and the message 'invalid login' will be thrown.
+-If the passwords do match, the userId and password will be assigned as properties
+and values to the const variable payload.
+-The sign method of the jwt object will be called passing in the payload variable
+and the process.evn.TOKEN_SECRET and assigned to the const variable token.
+-An object containing the properties token and user and the values of token and
+payload accordingly are sent as the response in JSON from the server.
+-The then method after the fetch method will get the response and then parse the
+response.
+-Once the response is parsed, the hash location will be checked and since the user
+was signing in, and there is a user and token property of the user object, the
+onSignIn method will be called with the result as the argument.
+-The handleSignIn method will be triggered and the setItem method of the localStorage
+property of the window object will be called with the arguments 'react-context-jwt'
+and token. This will store the token in the local storage on the user's device.
+-The state will also be set with the object containing the user property and the
+value of the user variable that was destructured from the result.
+-Since the state was changed, the page will be rendered again, but this time the
+state will contain the value the user.
+-The renderPage method will be called and will check the route property of the
+state property of the this object. Since the route is still sign-in, The Auth
+react element will be rendered. But after the component mounts, the getItem method
+of the localStorage property of the window object is called with the argument
+'react-context-jwt' and assigned to token.
+-Since the token was stored in local storage under 'react-context-jwt', the ternary
+to checked if token exists will pass the token into he decodeToken function. The
+decodeToken function uses the split method with the argument of '.' and assigns
+the second index to the const variable encodedPayload. The encodedPayload is passed
+to the atob function as an argument and the return is assigned to the jsonPayload
+variable. The jsonPayload variable is passed in to the parse method of the JSON
+object and the retrun of the parse method is assigned to the variable payload which
+is returned from the decodeToken function.
+-The return of the decode token is assigned to the const variable user which is
+then passed into the setState method as a property and value including the
+isAuthorizing property with the value of false.
+-Since the state was changed, the page will render once again. But now with the
+value of user and isAuthorizing being false.
+-The render method will called and within it, the renderPage method will be called
+which checks the route. Since the route is still sign-in, the Auth react element
+will be rendered.
+-Within Auth react element, it checkks if user exists. Since it does, it returns
+the Redirect react element with the to property and the value of '.'
+-In the Redirect react element, the hash property of the URL is changed to '#'.
+-The replace method of the location property of the window object is called with
+the argument of URL. This will trigger the event listener and change the route
+property of the state.
+-The render method will be called and then the renderPage method will be called
+and since the route is changed to '#', the home page will be rendered this time.
+-The home page will check if there is a user property of the context property of
+this object and since there is a user, it will return a div including a gif. LMAO
+
+3. User can stay signed in:
+- The hash is stored in the state so whenever the page loads, the hash will be
+checked and the page will be rendered based on the hash.
+-The user is also stored in the state which will keep then signed in an able to
+view the home page.
+
+4. User can sign out:
+-While the user is signed in and on the home page, there is a button in the
+nav bar that says sign out.
+-If the user clicks on the sign out button, the handleSignOut method is called
+and the token is removed from the local storage.
+-The state is also change where the user property has the value of null.
+-The render method is called and since and within it, the renderPage is called.
+The route is still blank so the homePage react element is rendered.
+-In the homePage react element, it will check if the user property is there.
+Since the user property was set to null, the Home Class will return the Redirect
+react element with the prop 'to' with the value of 'sign-in'.
+-In the Redirect react element, the to property of the props object is checked and
+since it is 'sign-in, the url is replaced to have sign-in as the hash.
+-The hashchange event listener is triggered and and route property is set to the
+new hash.
+-Since the state was changed, the render method is called once again and the
+renderPage method is called which see's that the route is now 'sign-in'.
+-The renderPage method returns the Auth react element.
+-The Auth react element checks if there is a user and since there isn't a user,
+it will return the sign-in page.
