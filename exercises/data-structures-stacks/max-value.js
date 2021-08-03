@@ -1,19 +1,10 @@
 /* exported maxValue */
 
 function maxValue(stack) {
-  if (stack.peek() === undefined) {
-    return -Infinity;
-  } else {
-    const array = [];
-    while (stack.peek() !== undefined) {
-      array.push(stack.pop());
-    }
-    let highest = array[0];
-    for (let i = 1; i < array.length; i++) {
-      if (array[i] > highest) {
-        highest = array[i];
-      }
-    }
-    return highest;
+  let max = -Infinity;
+  while (typeof stack.peek() !== 'undefined') {
+    const first = stack.pop();
+    max = Math.max(max, first);
   }
+  return max;
 }
